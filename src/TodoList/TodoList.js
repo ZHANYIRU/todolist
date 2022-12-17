@@ -35,21 +35,25 @@ function TodoList() {
       id: 1,
       text: "Learn React.js",
       completed: false,
+      edit: false,
     },
     {
       id: 2,
       text: "Learn Golang",
       completed: false,
+      edit: false,
     },
     {
       id: 3,
       text: "Learn Docker",
       completed: false,
+      edit: false,
     },
     {
       id: 4,
       text: "Learn soming else",
       completed: false,
+      edit: false,
     },
   ]);
   //開關切換
@@ -59,7 +63,7 @@ function TodoList() {
   const addTodo = (text) => {
     setTodo([
       ...todo,
-      { id: Number(new Date()), text: text, completed: false },
+      { id: Number(new Date()), text: text, completed: false, edit: false },
     ]);
   };
   //刪除todo
@@ -113,16 +117,12 @@ function TodoList() {
             className="matterWrap"
             style={{ paddingRight: todo.length <= 3 && "40px" }}
           >
-            {todo.map((el, i) => {
-              return (
-                <TodoItem
-                  key={el.id}
-                  el={el}
-                  delTodo={delTodo}
-                  okTodo={okTodo}
-                />
-              );
-            })}
+            <TodoItem
+              todo={todo}
+              setTodo={setTodo}
+              delTodo={delTodo}
+              okTodo={okTodo}
+            />
             {/* 給scrollbar的定位 */}
             <div ref={matter}></div>
           </div>
