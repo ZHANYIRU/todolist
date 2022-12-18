@@ -27,7 +27,9 @@ function TodoItem({ todo, setTodo, delTodo, okTodo }) {
             type="checkbox"
             checked={el.completed}
             onChange={() => okTodo(el.id)}
+            id={el.id}
           />
+          <label htmlFor={el.id}></label>
           {el.edit ? (
             <EditTodo id={el.id} text={el.text} edit={edit} />
           ) : (

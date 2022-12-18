@@ -80,7 +80,33 @@
       width: 400px;
     }
     input{
+      display: none;
+    }
+    label{
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1px solid #929ec2;
+      position: relative;
       margin-right: 15px;
+      &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        border-bottom: 2px solid rgb(255, 255, 255);
+        border-right: 2px solid rgb(255, 255, 255);
+        width: 5px;
+        height: 10px;
+        transform: rotate(45deg);
+        right: 4px;
+        opacity: 0;
+      }
+    }
+    input:checked +label{
+      background-color: #a9baeb;
+    }
+    input:checked +label::before{
+      opacity: 1;
     }
     p{
       color: #929ec2;
